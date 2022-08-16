@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fraud-det
+  namespace: fraud-det
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: "db2m.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/status"
+        backend:
+          service:
+            name: fraud-det
+            port:
+              number: 5555
+      - pathType: Prefix
+        path: "/verify"
+        backend:
+          service:
+            name: fraud-det
+            port:
+              number: 5555
