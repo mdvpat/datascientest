@@ -8,7 +8,7 @@ RUN mkdir /detecter/.kube
 
 RUN adduser -D detecter
 
-COPY Flask_Api_File /detecter/detecter.py
+COPY detecter.py /detecter
 WORKDIR /detecter
 
 RUN chown -R detecter:detecter /detecter
