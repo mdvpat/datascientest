@@ -8,4 +8,5 @@ docker pull muraduiurie/fraud-det
 
 # deploy image
 kubectl delete -f kubernetes
+kubectl apply -f kubernetes/namespace.yaml
 kubectl apply -f kubernetes
