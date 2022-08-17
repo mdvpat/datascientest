@@ -10,14 +10,14 @@ API_PORT = os.environ["API_PORT"]
 app = Flask(__name__)
 
 @app.route("/health")
-def status():
+def health():
     return jsonify({"status": "ok"})
 
 @app.route("/status")
 def status():
     pass
 
-@app.route("/verify", method=["POST"])
+@app.route("/verify", methods=["POST"])
 def verify():
     data = request.json
     
