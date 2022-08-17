@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraud-det
+  namespace: fraud-det
+  labels:
+    app: fraud-det
+data:
+  API_HOST: "db2m.com"
+  API_PORT: "5555"
