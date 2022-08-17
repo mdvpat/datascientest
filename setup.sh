@@ -4,7 +4,7 @@
 docker build -t muraduiurie/fraud-det ./docker
 
 # push image
-docker pull muraduiurie/fraud-det
+docker push muraduiurie/fraud-det
 
 # deploy image
 kubectl delete -f kubernetes
