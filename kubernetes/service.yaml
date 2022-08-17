@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fraud-det
+  namespace: fraud-det
+  labels:
+    app: fraud-det
+spec:
+  ports:
+  - port: 5555
+  selector:
+    app: fraud-det
