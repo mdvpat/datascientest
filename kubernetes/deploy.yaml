@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - name: fraud-det
+        imagePullPolicy: Always
         image: muraduiurie/fraud-det
         ports:
         - containerPort: 5555
