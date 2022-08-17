@@ -1,7 +1,6 @@
 import os
 from flask import Flask, jsonify, request
 
-API_HOST = os.environ["API_HOST"]
 API_PORT = os.environ["API_PORT"]
 
 app = Flask(__name__)
@@ -21,4 +20,4 @@ def verify():
     pass
 
 if __name__ == '__main__':
-    app.run(host=API_HOST, port=API_PORT)
+    app.run(host="localhost", port=API_PORT)
