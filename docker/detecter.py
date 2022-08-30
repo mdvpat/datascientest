@@ -3,6 +3,12 @@
 
 import os
 from flask import Flask, jsonify, request
+import numpy as np
+import pandas as pd
+import json
+from sklearn.ensemble import RandomForestClassifier
+from joblib import dump, load
+import joblib
 
 API_HOST = os.environ["API_HOST"]
 API_PORT = os.environ["API_PORT"]
@@ -19,23 +25,14 @@ def status():
 
 @app.route("/verify", methods=["POST"])
 
-    def verify(request.get_json()):
-    import numpy as np
-    import pandas as pd
-    import json
-
-    from sklearn.ensemble import RandomForestClassifier
-
+def verify(request.get_json()):
     ## Model Params
-    from joblib import dump, load
-    import joblib
-    global model
     model=joblib.load('model.joblib')
     model.estimators_
     ## Input Json // csv input will be implemented later
     df = pd.read_json(input)
     ### Check structure
-    
+
     df.head()
     ## Transform input : to be pipelined
     df["signup_time"] = pd.to_datetime(df["signup_time"])
@@ -69,10 +66,8 @@ def status():
     ## Send Answer
     #ans=df.to_json(orient="index")
     ans={'is_fraud' : df["is_fraud"]}
-    return ans
-
     
-    pass
+    return jsonify(ans)
 
 if __name__ == '__main__':
     app.run(host=API_HOST, port=API_PORT)
