@@ -1,12 +1,12 @@
-FROM python:3-alpine
+FROM python
 
-RUN apk add curl gcc alpine-sdk
+RUN apt update && apt install curl build-essential -y
 RUN pip install -U flask numpy pandas sklearn joblib
 
 RUN mkdir /detecter
 RUN mkdir /detecter/.kube
 
-RUN adduser -D detecter
+RUN useradd detecter
 
 COPY detecter.py /detecter
 COPY model.joblib /detecter
