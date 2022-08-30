@@ -1,6 +1,6 @@
 FROM python:3-alpine
 
-RUN apk add curl
+RUN apk add curl gcc
 RUN pip install -U flask numpy pandas json sklearn joblib
 
 RUN mkdir /detecter
