@@ -1,7 +1,7 @@
 FROM python:3-alpine
 
-RUN apk add curl gcc
-RUN pip install -U flask numpy pandas json sklearn joblib
+RUN apk add curl gcc alpine-sdk
+RUN pip install -U flask numpy pandas sklearn joblib
 
 RUN mkdir /detecter
 RUN mkdir /detecter/.kube
