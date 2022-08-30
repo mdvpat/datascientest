@@ -9,6 +9,7 @@ RUN mkdir /detecter/.kube
 RUN adduser -D detecter
 
 COPY detecter.py /detecter
+COPY model.joblib /detecter
 WORKDIR /detecter
 
 RUN chown -R detecter:detecter /detecter
