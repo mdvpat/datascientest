@@ -24,11 +24,12 @@ def status():
     pass
 
 @app.route("/verify", methods=["POST"])
-
-def verify(request.get_json()):
+def verify():
+    data = request.get_json()
+    print(f"verifying: {data}")
     ## Model Params
     model=joblib.load('model.joblib')
-    model.estimators_
+    print(model.estimators_)
     ## Input Json // csv input will be implemented later
     df = pd.read_json(input)
     ### Check structure
