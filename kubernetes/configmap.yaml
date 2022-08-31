@@ -6,5 +6,5 @@ metadata:
   labels:
     app: fraud-det
 data:
-  API_HOST: "db2m.com"
+  API_HOST: "0.0.0.0"
   API_PORT: "5555"
