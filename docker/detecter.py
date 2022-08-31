@@ -1,7 +1,8 @@
 # /status
 # /verify
 
-import os
+import os, sys
+import traceback
 from flask import Flask, jsonify, request
 import numpy as np
 import pandas as pd
@@ -71,7 +72,8 @@ def verify():
         
         return jsonify(ans)
     except Exception as e:
-        return jsonify({"error": e})
+        exc_info = sys.exc_info()
+        return ''.join(traceback.format_exception(*exc_info))
 
 if __name__ == '__main__':
     app.run(host=API_HOST, port=API_PORT)
