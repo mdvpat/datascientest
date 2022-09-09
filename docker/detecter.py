@@ -34,7 +34,7 @@ def verify():
         model=joblib.load('model.joblib')
         print(model.estimators_)
         ## Input Json // csv input will be implemented later
-        df = pd.read_json(input)
+        df = pd.DataFrame.from_dict(input)
         ### Check structure
 
         df.head()
