@@ -27,16 +27,16 @@ def status():
 @app.route("/verify", methods=["POST"])
 def verify():
     try:
-        #input = request.get_json()
-        #print(f"verifying: {input}")
-        input = {"user_id":"22058", "signup_time":"2015-02-24 22:55:49", "purchase_time":"2015-04-18 02:47:11", "purchase_value": "34", "device_id": "QVPSPJUOCKZAR", "source": "SEO", "browser": "Chrome", "sex": "M", "age": "39", "ip_address": "732758368.8", "is_fraud": "0"}
+        input = request.get_json()
+        print(f"verifying: {input}")
+        #input = {"user_id":"22058", "signup_time":"2015-02-24 22:55:49", "purchase_time":"2015-04-18 02:47:11", "purchase_value": "34", "device_id": "QVPSPJUOCKZAR", "source": "SEO", "browser": "Chrome", "sex": "M", "age": "39", "ip_address": "732758368.8", "is_fraud": "0"}
         print(input)
         
         ## Model Params
         model=joblib.load('model.joblib')
         print(model.estimators_)
         ## Input Json // csv input will be implemented later
-        df = pd.DataFrame.from_dict(input)
+        df = pd.DataFrame(input, index=[0])
         ### Check structure
 
         df.head()
