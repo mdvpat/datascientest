@@ -59,7 +59,7 @@ def verify():
         df=df.drop("purchase_time",1)
         df=df.drop("device_id",1)
         df=df.drop("ip_address",1)
-        df=df.drop("is_fraud",1)
+        # df=df.drop("is_fraud",1)
         ### Delta en heures
         df["delta"]=df["delta"].dt.total_seconds()
         df["delta"]=pd.to_numeric( df["delta"])/3600
@@ -70,11 +70,11 @@ def verify():
 
 
         ## Send Answer
-        ans=df.to_json(orient="index")
+        #ans=df.to_json(orient="index")
         print(ans)
-        #ans={'is_fraud' : df["is_fraud"]}
+        ans={'is_fraud' : df["is_fraud"]}
         
-        return jsonify(ans)
+        return ans
     except Exception as e:
         exc_info = sys.exc_info()
         return ''.join(traceback.format_exception(*exc_info))
