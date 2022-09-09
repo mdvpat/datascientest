@@ -70,11 +70,11 @@ def verify():
 
 
         ## Send Answer
-        # ans=df.to_json(orient="index")
-        ans={'is_fraud' : df["is_fraud"]}
+        ans=df.to_json(orient="index")
+        #ans={'is_fraud' : df["is_fraud"]}
         print(ans)
         
-        return ans
+        return jsonify(ans)
     except Exception as e:
         exc_info = sys.exc_info()
         return ''.join(traceback.format_exception(*exc_info))
