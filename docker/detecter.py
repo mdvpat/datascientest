@@ -28,7 +28,8 @@ def status():
 def verify():
     try:
         input = request.get_json()
-        print(f"verifying: {data}")
+        print(f"verifying: {input}")
+        print(input)
         ## Model Params
         model=joblib.load('model.joblib')
         print(model.estimators_)
