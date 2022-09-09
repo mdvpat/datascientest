@@ -27,7 +27,7 @@ def status():
 @app.route("/verify", methods=["POST"])
 def verify():
     try:
-        data = request.get_json()
+        input = request.get_json()
         print(f"verifying: {data}")
         ## Model Params
         model=joblib.load('model.joblib')
